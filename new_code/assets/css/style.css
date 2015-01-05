@@ -1,0 +1,54 @@
+html,body{
+	height:100%; 
+	overflow: hidden;
+}
+.bs-docs-header{	
+	background-color: #cccbcb;
+}
+.nav {
+	width: 100%;
+	margin: 0;
+}
+.meniu {	
+	text-align: center;
+	margin: auto;
+	border: 0px;
+}
+.meniu  ul {	
+	width: 100%;
+	text-align: center;
+	margin: auto;
+	border: 0px;
+}
+.meniu  li{	
+	width: 100%;
+	text-align: center;
+	margin: auto;
+	border: 0px;
+}
+.meniu:hover {	
+	background-color: black;
+}
+.navbar-toggle{
+	width: 100%;
+	margin-right: 0;
+}
+.icon-bar{
+	margin: auto;
+}
+.jumbotron{
+	border-radius: 20px;
+	box-shadow: 10px 10px 5px #888888;
+}
+.fullscreen {	
+    padding: 0px;
+	width: 100%;
+	height: 100%;
+}
+.overflow {
+	height: 80%;
+}
+.big {
+	width: 100%;
+	font-size: 1.3em;
+}
