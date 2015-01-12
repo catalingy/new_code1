@@ -47,7 +47,7 @@ $('#editUSERS').submit(function(event) {
 					$.post( "edit", { useredit: $('#edituser').attr('name'),teledit: $("input[name='teledit']").val(),emailedit: $("input[name='emailedit']").val(),passwordedit: $("input[name='passwordedit']").val(),typeedit: $('#typeedit').val(), descriptionedit: $("textarea[name='descriptionedit']").val(), age: $('.get_category').attr('name') })
 					 .done(function( data ) {
 									$("p[id='erroradd1']").text(data);							
-									setTimeout(function(){$('#edituser').modal('toggle');$('.get_category').attr('name','0');$("p[id='erroradd1']").text("");}, 2500);
+									setTimeout(function(){$('#edituser').modal('toggle');$('.get_category').attr('name','-');$("p[id='erroradd1']").text("");}, 2500);
 									document.getElementById("editUSERS").reset();
 									$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id'),ord: $("#order").val(),ustypes: $("#us_types").val()}).done(function( data ){
 										$('#user-list').html(data);
