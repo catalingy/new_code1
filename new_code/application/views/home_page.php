@@ -13,9 +13,9 @@
 			<div class = "fullscreen" >
 				<div class = "modal-content fullscreen" >
 					<div class = "modal-header">
-						<h4>Bun venit, <?php echo $nume.'!';if($type == 'u') echo ' Sunteti logat ca utilizator'; else echo ' Sunteti logat ca administrator'?>!</h4>
+						<h4  align="center">Bun venit, <?php echo $nume.'!';if($type == 'u') echo ' Sunteti logat ca utilizator'; else echo ' Sunteti logat ca administrator'?>!</h4>
 						<h4 align="center">Listă utilizatori</h4>
-						<?php if($type1 == 'a') echo'<input type = "text" name = "usersearch" placeholder = "Cautare utilizator">'?>
+						<?php if($type1 == 'a') echo'<input class = "form-control forms" type = "text" name = "usersearch" placeholder = "Cautare utilizator"> <select id = "order" class="form-control forms"><option value="asc">ASC</option><option  value="desc">DESC</option></select> <select id = "us_types" class="form-control forms"><option value="all">Toti</option><option value = "u">Utilizatori</option><option value = "a">Admini</option></select> '?>
 					</div>
 					<div class = "modal-body overflow" id = 'user-list'>
 						<?php foreach($users as $data) {echo '<div style = "text-align: left;" class = "btn btn-info big namepopover" data-pop="true" data-html=true data-content="'.'Email: '.array_shift($email).'<br> Număr telefon: '.array_shift($phone).'<br> Categorie varsta: '.array_shift($age).' ani<br>Descriere: '.array_shift($description); if(array_shift($type) == 'u') echo '<br>Tipul: utilizator';else echo '<br>Tipul: administrator';echo '">'.$data.'<a href = "#edituser" onclick = "edit(this)" id = "'.$data.'" data-toggle = "modal" class = "btn btn-primary pull-right" title = "Editare"></a></div><br><br>';} ?>
@@ -39,15 +39,15 @@
 						<form id = "add">
 							<p>Toate datele de mai jos sunt obligatorii!</p>
 							<label for = "exampleInputusername">Nume utilizator</label><br>
-							<input type = "text" placeholder = "utilizator" name = "useradd" required><br>
+							<input class = "form-control" type = "text" placeholder = "utilizator" name = "useradd" required>
 							<label for = "exampleInputusername">Număr de telefon</label><br>
-							<input type = "tel" placeholder = "telefon" name = "teladd" required><br>
+							<input class = "form-control" type = "tel" placeholder = "telefon" name = "teladd" required>
 							<label for = "exampleInputusername">Email</label><br>
-							<input type = "email" placeholder = "email" name = "emailadd" required><br>
+							<input class = "form-control" type = "email" placeholder = "email" name = "emailadd" required>
 							<label for = "exampleInputusername">Password</label><br>
-							<input type = "password" placeholder = "parola" name = "passwordadd" required ><br>
+							<input class = "form-control" type = "password" placeholder = "parola" name = "passwordadd" required >
 							<label for = "exampleInputusername">Descriere</label><br>
-							<textarea name = "descriptionadd" rows="2" cols="50"></textarea><br>
+							<textarea name = "descriptionadd" rows="2" cols="50" class = "form-control" ></textarea><br>
 							<select id = 'typeadd'>
 								<option value="u">Utilizator</option>
 								<option value="a">Administrator</option>
@@ -74,13 +74,13 @@
 					<div class = "modal-body">
 						<form id="editUSERS">
 							<label for = "exampleInputusername">Număr de telefon</label><br>
-							<input type = "tel" placeholder = "telefon" name = "teledit"><br>
+							<input class = "form-control" type = "tel" placeholder = "telefon" name = "teledit">
 							<label for = "exampleInputusername">Email</label><br>
-							<input type = "email" placeholder = "email" name = "emailedit"><br>
+							<input class = "form-control" type = "email" placeholder = "email" name = "emailedit">
 							<label for = "exampleInputusername">Password</label><br>
-							<input type = "password" placeholder = "parola" name = "passwordedit" ><br><br>
+							<input class = "form-control" type = "password" placeholder = "parola" name = "passwordedit" ><br>
 							<?php if($type1 == 'a') echo '<select id = "typeedit"><option value="u">Utilizator</option><option value="a">Administrator</option></select><br><br>'?>
-							<textarea name = "descriptionedit" rows="2" cols="50"></textarea><br><br>
+							<textarea class = "form-control" name = "descriptionedit" rows="2" cols="50"></textarea><br><br>
 							<a href = "#age_category" class = "btn btn-default get_category" data-toggle = "modal" >Categorie vârstă</a><br><br>
 							<input type = "submit" class = "btn btn-info" value = "Modificare date" ><br><br>
 							<p id = "erroradd1"></p>
@@ -106,7 +106,7 @@
 						</div>
 						<br>
 						<a  class = "btn btn-default" data-toggle = "modal" id = "add_age_category" >Adauga categorie</a><br>
-						<input class = 'add_agecat' type = 'text' placeholder = "Categorie de varsta" name="cat_ani" id ="add_agecatin">
+						<input class = 'add_agecat form-control' type = 'text' placeholder = "Categorie de varsta" name="cat_ani" id ="add_agecatin">
 						<button class = "btn btn-default add_agecat" id ="add_agecat">Adaugare</button>
 					</div>
 					<div class = "modal-footer">

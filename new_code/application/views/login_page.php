@@ -20,9 +20,9 @@
 					<fieldset>
 						<legend>Logare pe site</legend>
 						<label for = "exampleInputusername">Nume utilizator</label><br>
-						<input type = "text" placeholder = "utilizator" name = "user"  ><br><br>
+						<input class="form-control" type = "text" placeholder = "utilizator" name = "user"  ><br><br>
 						<label for = "exampleInputpassword">Parola</label><br>
-						<input type = "password" placeholder = "parola" name = "password" ><br><br>
+						<input class="form-control" type = "password" placeholder = "parola" name = "password" ><br><br>
 						<input type = "submit" class = "btn btn-primary" value = "Logare" >
 						<a href="#recparola" data-toggle = "modal">Am uitat parola</a><br><br>
 						<p><?php echo validation_errors(); ?></p>
@@ -41,9 +41,9 @@
 						<form action = "<?php base_url();?>reset_pass" method = "post">
 							<p>Introdu email si user si iti vom trimite o parola noua pe email!</p>
 							<label for = "exampleInputusername">Nume utilizator</label><br>
-							<input type = "text" placeholder = "utilizator" name = "userrec" required ><br><br>
+							<input class="form-control" type = "text" placeholder = "utilizator" name = "userrec" required ><br><br>
 							<label for = "exampleInputusername">Email</label><br>
-							<input type = "email" placeholder = "email" name = "emailrec" required ><br><br>
+							<input class="form-control" type = "email" placeholder = "email" name = "emailrec" required ><br><br>
 							<input type = "submit" class = "btn btn-primary" value = "Trimite parola noua" >
 						</form>
 					</div>

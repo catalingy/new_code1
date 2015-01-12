@@ -28,7 +28,7 @@ $('#add').submit(function(event) {
 									$("p[id='erroradd']").text("Contactul a fost introdus cu succes!");
 									document.getElementById("add").reset();
 									setTimeout(function(){$('#adduser').modal('toggle');$('.get_category').attr('name','-');$("p[id='erroradd']").text("");}, 2500);
-									$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id')}).done(function( data ){
+									$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id'),ord: $("#order").val(),ustypes: $("#us_types").val()}).done(function( data ){
 										$('#user-list').html(data);
 										$('.namepopover').popover({
 											trigger:'hover',
@@ -49,7 +49,7 @@ $('#editUSERS').submit(function(event) {
 									$("p[id='erroradd1']").text(data);							
 									setTimeout(function(){$('#edituser').modal('toggle');$('.get_category').attr('name','0');$("p[id='erroradd1']").text("");}, 2500);
 									document.getElementById("editUSERS").reset();
-									$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id')}).done(function( data ){
+									$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id'),ord: $("#order").val(),ustypes: $("#us_types").val()}).done(function( data ){
 										$('#user-list').html(data);
 										$('.namepopover').popover({
 											trigger:'hover',
@@ -88,7 +88,7 @@ function delete_age(x) {
 							$.post("reload_ages").done(function( data ){
 								$('#ages_div').html(data);
 							});
-							$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id'), search: $("input[name='usersearch']").val()}).done(function( data ){
+							$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id'), search: $("input[name='usersearch']").val(),ord: $("#order").val(),ustypes: $("#us_types").val()}).done(function( data ){
 										$('#user-list').html(data);
 										$('.namepopover').popover({
 											trigger:'hover',
@@ -99,7 +99,7 @@ function delete_age(x) {
 					});
 }
 $("#add_age_category1").click(function() {
-	$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id')}).done(function( data ){
+	$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id'),ord: $("#order").val(),ustypes: $("#us_types").val()}).done(function( data ){
 										$('#user-list').html(data);
 										$('.namepopover').popover({
 											trigger:'hover',
@@ -111,7 +111,7 @@ $("#add_age_category1").click(function() {
 	$('#age_category').modal('toggle');	
 });
 $("input[name='usersearch']").on("input propertychange",function() {
-		$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id'), search: $("input[name='usersearch']").val()}).done(function( data ){
+		$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id'), search: $("input[name='usersearch']").val(),ord: $("#order").val(),ustypes: $("#us_types").val() }).done(function( data ){
 										$('#user-list').html(data);
 										$('.namepopover').popover({
 											trigger:'hover',
@@ -128,7 +128,7 @@ $("#delete_user").click(function(){
 				$.post("delete_user", {name: $('#edituser').attr('name')}).done(function( data ) {
 								$("p[id='erroradd1']").text(data);							
 								setTimeout(function(){$('#edituser').modal('toggle');$('.get_category').attr('name','-');$("p[id='erroradd1']").text("");}, 2500);
-								$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id')}).done(function( data ){
+								$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id'),ustypes: $("#us_types").val()}).done(function( data ){
 									$('#user-list').html(data);
 									$('.namepopover').popover({
 										trigger:'hover',
@@ -138,4 +138,24 @@ $("#delete_user").click(function(){
 								});
 				});
 			}
+});
+$("#order").change(function(){
+	$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id'), search: $("input[name='usersearch']").val(),ord: $("#order").val(),ustypes: $("#us_types").val() }).done(function( data ){
+										$('#user-list').html(data);
+										$('.namepopover').popover({
+											trigger:'hover',
+											animation: false,
+											placement: 'bottom' 
+										});
+									});
+});
+$("#us_types").change(function(){
+	$.post("reload",{nume: $('body').attr('name'), type: $('body').attr('id'), search: $("input[name='usersearch']").val(),ord: $("#order").val(),ustypes: $("#us_types").val() }).done(function( data ){
+										$('#user-list').html(data);
+										$('.namepopover').popover({
+											trigger:'hover',
+											animation: false,
+											placement: 'bottom' 
+										});
+									});
 });

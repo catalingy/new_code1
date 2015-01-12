@@ -1,6 +1,6 @@
 html,body{
 	height:100%; 
-
+	overflow-y: hidden;
 }
 .bs-docs-header{	
 	background-color: #cccbcb;
@@ -55,4 +55,38 @@ html,body{
 }
 .add_agecat {
 	display: none;
+}
+.forms {
+	width: 200px;
+	display: inline-block;
+}
+@media (max-width: 850px) {
+  .forms {
+	width: 300px;
+	display: block;
+	margin: auto;
+  }
+  .overflow {
+	height: 48%;
+  }
+}
+@media (max-width: 700px) {
+  .forms {
+	width: 200px;
+	display: block;
+	margin: auto;
+  }
+  .overflow {
+	height: 48%;
+  }
+}
+@media (max-height: 600px) {
+  .fullscreen{
+	height: auto;
+  }
+}
+@media (max-height: 550px) {
+  body {
+	overflow-y: scroll;
+  }
 }

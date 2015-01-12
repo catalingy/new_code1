@@ -30,7 +30,7 @@ class site01 extends CI_Controller {
 			$GLOBALS['name'] = $data["nume"];
 			$data['type1'] = $GLOBALS['type'];
 			$this->load->model('users_load');
-			$array = $this->users_load->load($GLOBALS['type'],$this->input->post('user'),'');
+			$array = $this->users_load->load($GLOBALS['type'],$this->input->post('user'),'','asc','all');
 			$data['users'] = array_shift($array);
 			$data['email'] = array_shift($array);
 			$data['phone'] = array_shift($array);
@@ -40,6 +40,7 @@ class site01 extends CI_Controller {
 			$this->load->model('age_category_load');
 			$ages = $this->age_category_load->load();
 			$data['ages'] = $ages;
+			$data['ageops'] = $ages;
 			$this->load->view("home_page", $data);
 		}
 	}
@@ -96,11 +97,11 @@ class site01 extends CI_Controller {
 	public function reload(){
 		$this->load->model("reload");
 		if (isset($_POST['search'])){
-			echo $this->reload->load($_POST['type'],$_POST['nume'],$_POST['search']);
+			echo $this->reload->load($_POST['type'],$_POST['nume'],$_POST['search'],$_POST['ord'],$_POST['ustypes']);
 		}
 		else 
 		{
-			echo $this->reload->load($_POST['type'],$_POST['nume'],'');
+			echo $this->reload->load($_POST['type'],$_POST['nume'],'',$_POST['ord'],$_POST['ustypes']);
 		}
 
 	}

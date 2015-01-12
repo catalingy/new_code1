@@ -1,10 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 	class reload extends CI_Model{
-		public function load($user,$nume,$search){
+		public function load($user,$nume,$search,$ord,$ustypes){
 			$returns = "";
 			$this->load->model('users_load');
-			$array = $this->users_load->load($user,$nume,$search);
+			$array = $this->users_load->load($user,$nume,$search,$ord,$ustypes);
 			$users = array_shift($array);
 			$email = array_shift($array);
 			$phone = array_shift($array);
